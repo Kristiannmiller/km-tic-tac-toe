@@ -8,9 +8,10 @@ gameboard.addEventListener('click', takeTurn)
 window.addEventListener('load', startNewGame)
 // FUNCTIONS
 function takeTurn(event) {
-  determineTurnLocation(event);
+  determineBoardLocation(event);
   // determine if the spot is available
   // determine player turn
+  updateGameBoard()
   // change gameboard/player data model
   // determine game status
   // save to storage
@@ -22,7 +23,22 @@ function startNewGame() {
   var player2 = new Player("assets/trex.gif")
   newGame = new Game(player1, player2)
 }
-function determineTurnLocation(event) {
-  var turn = event.target.id
+function determineBoardLocation(event) {
+  var boardLocation = event.target.id
+  console.log(typeof boardLocation)
+  if(boardLocation === undefined){
+    alert('Clever Girl: Please pick a valid spot')
+  }
+  updateGameBoard(boardLocation)
+  fillGameboardTarget(boardLocation)
+}
+function fillGameboardTarget(boardLocation) {
+
+}
+function updateGameBoard(boardLocation) {
+  //newGame.determineBoardStatus()
+  //if newGame.turn === player1
+  //switch to newGame.player2
+
 
 }

@@ -1,9 +1,11 @@
+// LOCAL VARIABLE
+var newGame;
 // GAMESPACES
 var gameboard = document.querySelector('.gameboard');
 
 // EVENT LISTENERS
 gameboard.addEventListener('click', takeTurn)
-
+window.addEventListener('load', startNewGame)
 // FUNCTIONS
 function takeTurn(event) {
   determineTurnLocation(event);
@@ -15,7 +17,12 @@ function takeTurn(event) {
   // update dom
 
 }
+function startNewGame() {
+  var player1 = new Player("assets/Goldblum.gif")
+  var player2 = new Player("assets/trex.gif")
+  newGame = new Game(player1, player2)
+}
 function determineTurnLocation(event) {
   var turn = event.target.id
-  console.log(event.target.id)
+
 }

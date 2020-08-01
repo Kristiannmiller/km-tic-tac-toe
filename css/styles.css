@@ -28,7 +28,24 @@ body {
 }
 
 h2 {
-  align-self: center;
+  color: #781d18;
 }
 
 /* ~~~~~ GAMEBOARD ~~~~~ */
+.main {
+  text-align: center;
+  background-color: #180806;
+}
+.header {
+  border-style: ridge;
+  border-color: #f0b83e;
+  color: white;
+  font-size: xxx-large;
+  margin: 20px;
+  padding: 10px;
+  background-color: #6d6d6d;
+  background-blend-mode: overlay;
+}
+.gameboard {
+  
+}

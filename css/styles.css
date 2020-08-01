@@ -49,6 +49,22 @@ h2 {
   background: no-repeat;
   background-size: 100%;
 }
+
+.turn-determination-container {
+  display: inline-flex;
+  text-align: center;
+}
+
+.turn-determination {
+  display: flex;
+  color: #f0b83e;
+  align-items: center;
+}
+
+.turn-token {
+  height: 50px;
+
+}
 .gameboard {
   display: grid;
   margin: 0 20px 0 -20px;

@@ -35,6 +35,7 @@ h2 {
 .main {
   text-align: center;
   background-color: #180806;
+  padding: 0 3vh 3vh 3vh;
 }
 .header {
   border-style: ridge;
@@ -45,7 +46,26 @@ h2 {
   padding: 10px;
   background-color: #6d6d6d;
   background-blend-mode: overlay;
+  background: no-repeat;
+  background-size: 100%;
 }
 .gameboard {
-  
+  display: grid;
+  margin: 0 20px 0 -20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+  width: 100%;
+}
+.gameboard div {
+  height: 25vh;
+  width: 25vh;
+}
+
+.player-gamepiece {
+  height: 24vh;
+
+}
+footer {
+
 }

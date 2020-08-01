@@ -1,0 +1,34 @@
+/* ~~~~~ GLOBAL RULES ~~~~~ */
+/*=== Reset ===*/
+
+html, body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%
+}
+
+body {
+  display: flex;
+  font-family: 'Open Sans';
+}
+
+/* ~~~~~ SCOREBOARDS ~~~~~ */
+.scoreboard {
+  height: 100%;
+  background-color: #f0b83e;
+  text-align: center;
+}
+
+.player-token {
+  height: 25vh;
+  padding: 40px;
+}
+
+h2 {
+  align-self: center;
+}
+
+/* ~~~~~ GAMEBOARD ~~~~~ */

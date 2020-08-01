@@ -26,7 +26,7 @@ function startNewGame() {
 function determineBoardLocation(event) {
   var boardLocation = event.target.id
   console.log(typeof boardLocation)
-  if(boardLocation === undefined){
+  if(boardLocation === ""){
     alert('Clever Girl: Please pick a valid spot')
   }
   updateGameBoard(boardLocation)
@@ -36,9 +36,10 @@ function fillGameboardTarget(boardLocation) {
 
 }
 function updateGameBoard(boardLocation) {
-  //newGame.determineBoardStatus()
-  //if newGame.turn === player1
-  //switch to newGame.player2
-
-
+  newGame.determineBoardStatus(boardLocation)
+  if (newGame.turn === newGame.player1) {
+    newGame.turn = newGame.player2
+  } else {
+    newGame.turn = newGame.player1
+  }
 }

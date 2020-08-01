@@ -9,12 +9,17 @@ class Game {
     this.turn = this.player1
   }
   determineBoardStatus(targetId) {
-    //if this.turn === this.player1
-    //loop through currentBoard array
-    //if targetId === [i]
-    //replace it with "X"
-    determineWin()
-    determineDraw()
+    if(this.turn === this.player1) {
+      for(var i = 0; i < this.currentBoard.length; i++) {
+        console.log(this.currentBoard[i]);
+        console.log(targetId);
+        if(this.currentBoard[i] === targetId) {
+          this.currentBoard.splice(i, 1, "X");
+        }
+      }
+    }
+    // determineWin()
+    // determineDraw()
 
   }
   determineWin() {

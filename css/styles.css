@@ -1,0 +1,71 @@
+/* ~~~~~ GLOBAL RULES ~~~~~ */
+/*=== Reset ===*/
+
+html, body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%
+}
+
+body {
+  display: flex;
+  font-family: 'Open Sans';
+}
+
+/* ~~~~~ SCOREBOARDS ~~~~~ */
+.scoreboard {
+  height: 100%;
+  background-color: #f0b83e;
+  text-align: center;
+}
+
+.player-token {
+  height: 25vh;
+  padding: 40px;
+}
+
+h2 {
+  color: #781d18;
+}
+
+/* ~~~~~ GAMEBOARD ~~~~~ */
+.main {
+  text-align: center;
+  background-color: #180806;
+  padding: 0 3vh 3vh 3vh;
+}
+.header {
+  border-style: ridge;
+  border-color: #f0b83e;
+  color: white;
+  font-size: xxx-large;
+  margin: 20px;
+  padding: 10px;
+  background-color: #6d6d6d;
+  background-blend-mode: overlay;
+  background: no-repeat;
+  background-size: 100%;
+}
+.gameboard {
+  display: grid;
+  margin: 0 20px 0 -20px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+  width: 100%;
+}
+.gameboard div {
+  height: 25vh;
+  width: 25vh;
+}
+
+.player-gamepiece {
+  height: 24vh;
+
+}
+footer {
+
+}

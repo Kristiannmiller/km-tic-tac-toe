@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="css/styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="reset" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Jurassic-Tac-Toe</title>
   </head>
   <body>
-    <div class="scoreboard-player1">
+    <div class="scoreboard">
       <img class="player-token" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
       <h2 class="player-score">0 WINS</h2>
     </div>
     <main class="main">
-      <header class="header">Jurassic Tac Toe</header>
+      <header class="header" style="background-image: url('assets/Headerbackground.jpg')">Jurassic Tac Toe</header>
       <section class="gameboard">
-        <img class="player-token1" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
-        <img class="player-token2" src="assets/trex.gif" alt="t-rex gif from Jurassic Park">
-        <img class="player-token3" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
-        <img class="player-token4" src="assets/trex.gif" alt="t-rex gif from Jurassic Park">
-        <img class="player-token5" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
-        <img class="player-token6" src="assets/trex.gif" alt="t-rex gif from Jurassic Park">
-        <img class="player-token7" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
-        <img class="player-token8" src="assets/trex.gif" alt="t-rex gif from Jurassic Park">
-        <img class="player-token9" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
+        <div id="r1c1">
+          <img class="player-gamepiece" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
+        </div>
+        <div id="r1c2">
+          <img class="player-gamepiece" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
+        </div>
+        <div id="r1c3">
+          <img class="player-gamepiece" src="assets/trex.gif" alt="t-rex gif from Jurassic Park">
+        </div>
+        <div id="r2c1">
+          <img class="player-gamepiece" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
+        </div>
+        <div id="r2c2">
+          <img class="player-gamepiece" src="assets/trex.gif" alt="t-rex gif from Jurassic Park">
+        </div>
+        <div id="r2c3">
+          <img class="player-gamepiece" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
+        </div>
+        <div id="r3c1">
+          <img class="player-gamepiece" src="assets/trex.gif" alt="t-rex gif from Jurassic Park">
+        </div>
+        <div id="r3c2">
+          <img class="player-gamepiece" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
+        </div>
+        <div id="r3c3">
+          <img class="player-gamepiece" src="assets/trex.gif" alt="t-rex gif from Jurassic Park">
+        </div>
       </section>
       <footer class="game-result">
-        <img class="player-token1" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
+        <img class="winner-token" src="assets/Goldblum.gif" alt="Jeff Goldblum gif from Jurassic Park">
         <h1>WON!</h1>
       </footer>
     </main>
-    <div class="scoreboard-player2">
+    <div class="scoreboard">
       <img class="player-token" src="assets/trex.gif" alt="trex gif from Jurassic Park">
       <h2 class="player-score">0 WINS</h2>
     </div>

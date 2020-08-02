@@ -1,12 +1,18 @@
-// LOCAL VARIABLE
+// ********** LOCAL VARIABLE **********
+
 var currentGame;
-// GAMESPACES
+
+// ********** GAMESPACES **********
+
 var gameboard = document.querySelector('.gameboard');
 
-// EVENT LISTENERS
+// ********** EVENT LISTENERS **********
+
 gameboard.addEventListener('click', takeTurn)
 window.addEventListener('load', startNewGame)
-// FUNCTIONS
+
+// ******** FUNCTIONS/EVENTHANDLERS **********
+
 function takeTurn(event) {
   determineBoardLocation(event);
   // determine if the spot is available
@@ -27,6 +33,7 @@ function startNewGame() {
   currentGame = new Game(player1, player2)
   console.log(currentGame);
 }
+
 function determineBoardLocation(event) {
   var targetId = parseInt(event.target.id);
   if(targetId === "") {
@@ -39,14 +46,19 @@ function determineBoardLocation(event) {
 }
 
 function fillGameboardTarget(boardLocation) {
-
+  
 }
+
 function updateGameBoard(targetId) {
   currentGame.determineBoardStatus(targetId)
+  fillGameboardTarget(targetId)
+  if(currentGame.winner === undefined) {
+    currentGame.turn === currentGame.player1 ? currentGame.turn = currentGame.player2 : currentGame.turn = currentGame.player1;
+  }
   if (currentGame.turn === currentGame.player1) {
     currentGame.turn = currentGame.player2
   } else {
     currentGame.turn = currentGame.player1
   }
-  fillGameboardTarget(targetId)
+
 }

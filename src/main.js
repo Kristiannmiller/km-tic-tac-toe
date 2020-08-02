@@ -15,16 +15,13 @@ window.addEventListener('load', startNewGame)
 
 function takeTurn(event) {
   determineBoardLocation(event);
-  // determine if the spot is available
-  // determine player turn
-  // updateGameBoard()
   console.log(currentGame);
-  // change gameboard/player data model
-  // determine game status
-  // save to storage
-  // update dom
-
+  if(!currentGame.winner === undefined) {
+      // timeout
+      // clear board
+  }
 }
+
 function startNewGame() {
   var id1 = Math.floor(Math.random() * 10000)
   var id2 = Math.floor(Math.random() * 10000)
@@ -57,5 +54,4 @@ function updateGameBoard(targetId) {
   if(currentGame.winner === undefined) {
     currentGame.turn === currentGame.player1 ? currentGame.turn = currentGame.player2 : currentGame.turn = currentGame.player1;
   }
-
 }

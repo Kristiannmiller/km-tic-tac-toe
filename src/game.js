@@ -47,6 +47,7 @@ class Game {
       (currentPlayerTurns.includes(this.winningCombinations[i][2]))) {
         this.winner = this.turn
         this.turn.wins.push(this)
+        this.resetBoard()
         break
       } else {
         this.determineTie()
@@ -56,6 +57,7 @@ class Game {
 
   determineTie() {
     this.turnCount === 9 ? this.winner = "tie" : this.winner = undefined
+    this.resetBoard()
   }
 
   saveWinningBoard(player) {
@@ -64,7 +66,7 @@ class Game {
 
   }
   resetBoard() {
-    // clear currentBoard
+    this.currentBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     // timeout?
   }
 }

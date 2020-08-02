@@ -3,6 +3,8 @@ class Game {
     this.player1 = player1
     this.player2 = player2
     this.turn = player1
+    this.turnCount = 0
+    this.winner = undefined
     this.currentBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     this.winningCombinations = [
       [0, 3, 6], [1, 4, 7],
@@ -13,8 +15,7 @@ class Game {
 
   determineBoardStatus(targetId) {
     this.updateCurrentBoard(targetId)
-    if (this.mapPlays().length >= 3) {
-      console.log(this.mapPlays().length);
+    if(this.mapPlays().length >= 3) {
       this.determineWin(this.mapPlays())
     }
   }
@@ -23,6 +24,7 @@ class Game {
     for(var i = 0; i < this.currentBoard.length; i++) {
       if(this.currentBoard[i] === targetId) {
         this.currentBoard.splice(i, 1, this.turn.marker)
+        this.turnCount++
       }
     }
   }
@@ -39,13 +41,11 @@ class Game {
 
 
   determineWin(currentPlayerTurns) {
-    var winningBoard
     for(var i = 0; i < this.winningCombinations.length; i++) {
       if ((currentPlayerTurns.includes(this.winningCombinations[i][0])) &&
       (currentPlayerTurns.includes(this.winningCombinations[i][1])) &&
       (currentPlayerTurns.includes(this.winningCombinations[i][2]))) {
-        winningBoard = true
-        console.log("WINNER!");
+        this.winner = this.turn
         break
       } else {
         this.determineTie()
@@ -74,21 +74,9 @@ class Game {
 
 
   determineTie() {
-    var tiedBoard
-    for(var i = 0; i < this.currentBoard.length; i++) {
-      if(typeof(this.currentBoard[i]) === "number") {
-        tiedBoard = false
-        break;
-      } else {
-        tiedBoard = true
-      }
-    }
-    console.log(`Tie? ${tiedBoard}`)
-    //if board is full, and determineWin=false
-    //it's a draw
-
-
+    this.turnCount === 9 ? this.winner = "tie" : this.winner = undefined
   }
+
   saveWinningBoard(player) {
     // Rewrite winning board so that numbers are empty strings
     // send to player.wins

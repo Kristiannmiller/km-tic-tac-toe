@@ -39,11 +39,16 @@ class Game {
 
 
   determineWin(currentPlayerTurns) {
+    var winningBoard
     for(var i = 0; i < this.winningCombinations.length; i++) {
       if ((currentPlayerTurns.includes(this.winningCombinations[i][0])) &&
       (currentPlayerTurns.includes(this.winningCombinations[i][1])) &&
       (currentPlayerTurns.includes(this.winningCombinations[i][2]))) {
-        return true
+        winningBoard = true
+        console.log("WINNER!");
+        break
+      } else {
+        this.determineTie()
       }
     }
   }
@@ -69,6 +74,16 @@ class Game {
 
 
   determineTie() {
+    var tiedBoard
+    for(var i = 0; i < this.currentBoard.length; i++) {
+      if(typeof(this.currentBoard[i]) === "number") {
+        tiedBoard = false
+        break;
+      } else {
+        tiedBoard = true
+      }
+    }
+    console.log(`Tie? ${tiedBoard}`)
     //if board is full, and determineWin=false
     //it's a draw
 

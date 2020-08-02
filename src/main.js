@@ -1,5 +1,5 @@
 // LOCAL VARIABLE
-var newGame;
+var currentGame;
 // GAMESPACES
 var gameboard = document.querySelector('.gameboard');
 
@@ -12,6 +12,7 @@ function takeTurn(event) {
   // determine if the spot is available
   // determine player turn
   updateGameBoard()
+  console.log(currentGame);
   // change gameboard/player data model
   // determine game status
   // save to storage
@@ -21,13 +22,13 @@ function takeTurn(event) {
 function startNewGame() {
   var id1 = Math.floor(Math.random() * 10000)
   var id2 = Math.floor(Math.random() * 10000)
-  var player1 = new Player(id1, "assets/Goldblum.gif")
-  var player2 = new Player(id2, "assets/trex.gif")
-  newGame = new Game(player1, player2)
+  var player1 = new Player(id1, "assets/Goldblum.gif", "X")
+  var player2 = new Player(id2, "assets/trex.gif", "O")
+  currentGame = new Game(player1, player2)
+  console.log(currentGame);
 }
 function determineBoardLocation(event) {
-  var boardLocation = event.target.id
-  console.log(typeof boardLocation)
+  var boardLocation = parseInt(event.target.id);
   if(boardLocation === ""){
     alert('Clever Girl! \n Please pick a valid spot')
   }
@@ -38,10 +39,10 @@ function fillGameboardTarget(boardLocation) {
 
 }
 function updateGameBoard(boardLocation) {
-  newGame.determineBoardStatus(boardLocation)
-  if (newGame.turn === newGame.player1) {
-    newGame.turn = newGame.player2
+  currentGame.determineBoardStatus(boardLocation)
+  if (currentGame.turn === currentGame.player1) {
+    currentGame.turn = currentGame.player2
   } else {
-    newGame.turn = newGame.player1
+    currentGame.turn = currentGame.player1
   }
 }

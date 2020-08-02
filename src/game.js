@@ -46,6 +46,7 @@ class Game {
       (currentPlayerTurns.includes(this.winningCombinations[i][1])) &&
       (currentPlayerTurns.includes(this.winningCombinations[i][2]))) {
         this.winner = this.turn
+        this.turn.wins.push(this)
         break
       } else {
         this.determineTie()

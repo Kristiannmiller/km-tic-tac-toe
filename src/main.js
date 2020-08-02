@@ -19,15 +19,17 @@ function takeTurn(event) {
 
 }
 function startNewGame() {
-  var player1 = new Player("assets/Goldblum.gif")
-  var player2 = new Player("assets/trex.gif")
+  var id1 = Math.floor(Math.random() * 10000)
+  var id2 = Math.floor(Math.random() * 10000)
+  var player1 = new Player(id1, "assets/Goldblum.gif")
+  var player2 = new Player(id2, "assets/trex.gif")
   newGame = new Game(player1, player2)
 }
 function determineBoardLocation(event) {
   var boardLocation = event.target.id
   console.log(typeof boardLocation)
   if(boardLocation === ""){
-    alert('Clever Girl: Please pick a valid spot')
+    alert('Clever Girl! \n Please pick a valid spot')
   }
   updateGameBoard(boardLocation)
   fillGameboardTarget(boardLocation)

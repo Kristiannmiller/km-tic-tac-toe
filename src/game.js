@@ -11,10 +11,16 @@ class Game {
   determineBoardStatus(targetId) {
     if(this.turn === this.player1) {
       for(var i = 0; i < this.currentBoard.length; i++) {
-        console.log(this.currentBoard[i]);
-        console.log(targetId);
         if(this.currentBoard[i] === targetId) {
           this.currentBoard.splice(i, 1, "X");
+          this.turn = this.player2
+        }
+      }
+    } else {
+      for(var i = 0; i < this.currentBoard.length; i++) {
+        if(this.currentBoard[i] === targetId) {
+          this.currentBoard.splice(i, 1, "O");
+          this.turn = this.player1
         }
       }
     }

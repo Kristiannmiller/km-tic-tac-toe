@@ -45,8 +45,10 @@ function determineBoardLocation(event) {
   }
 }
 
-function fillGameboardTarget(boardLocation) {
-  
+function fillGameboardTarget(targetId) {
+  var gridLocation = document.getElementById(`${targetId}`)
+  gridLocation.innerHTML +=
+      `<img class="player-gamepiece" src="${currentGame.turn.token}" alt="">`
 }
 
 function updateGameBoard(targetId) {
@@ -54,11 +56,6 @@ function updateGameBoard(targetId) {
   fillGameboardTarget(targetId)
   if(currentGame.winner === undefined) {
     currentGame.turn === currentGame.player1 ? currentGame.turn = currentGame.player2 : currentGame.turn = currentGame.player1;
-  }
-  if (currentGame.turn === currentGame.player1) {
-    currentGame.turn = currentGame.player2
-  } else {
-    currentGame.turn = currentGame.player1
   }
 
 }

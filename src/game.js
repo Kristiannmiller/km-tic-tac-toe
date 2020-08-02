@@ -39,25 +39,32 @@ class Game {
 
 
   determineWin(currentPlayerTurns) {
-    console.log(currentPlayerTurns);
     for(var i = 0; i < this.winningCombinations.length; i++) {
-      var matchingSpots = 0
-      if(currentPlayerTurns.includes(this.winningCombinations[i][0])) {
-        matchingSpots++
-      }if(currentPlayerTurns.includes(this.winningCombinations[i][1])) {
-        matchingSpots++
-      }if(currentPlayerTurns.includes(this.winningCombinations[i][2])) {
-        matchingSpots++
-      }if(matchingSpots === 3) {
-          console.log("WINNER");
-          return true
-        } else {
-          console.log("not a winner");
-          return false
+      if ((currentPlayerTurns.includes(this.winningCombinations[i][0])) &&
+      (currentPlayerTurns.includes(this.winningCombinations[i][1])) &&
+      (currentPlayerTurns.includes(this.winningCombinations[i][2]))) {
+        return true
       }
-      console.log(matchingSpots);
     }
   }
+  //   for(var i = 0; i < this.winningCombinations.length; i++) {
+  //     var matchingSpots = 0
+  //     if(currentPlayerTurns.includes(this.winningCombinations[i][0])) {
+  //       matchingSpots++
+  //     }if(currentPlayerTurns.includes(this.winningCombinations[i][1])) {
+  //       matchingSpots++
+  //     }if(currentPlayerTurns.includes(this.winningCombinations[i][2])) {
+  //       matchingSpots++
+  //     }if(matchingSpots === 3) {
+  //         console.log("WINNER");
+  //         return true
+  //       } else {
+  //         console.log("not a winner");
+  //         return false
+  //     }
+  //     console.log(matchingSpots);
+  //   }
+  // }
 
 
 

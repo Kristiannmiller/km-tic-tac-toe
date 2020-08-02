@@ -11,7 +11,7 @@ function takeTurn(event) {
   determineBoardLocation(event);
   // determine if the spot is available
   // determine player turn
-  updateGameBoard()
+  // updateGameBoard()
   console.log(currentGame);
   // change gameboard/player data model
   // determine game status
@@ -28,21 +28,25 @@ function startNewGame() {
   console.log(currentGame);
 }
 function determineBoardLocation(event) {
-  var boardLocation = parseInt(event.target.id);
-  if(boardLocation === ""){
+  var targetId = parseInt(event.target.id);
+  if(targetId === "") {
     alert('Clever Girl! \n Please pick a valid spot')
+  } else if(currentGame.currentBoard[targetId] === "X" || currentGame.currentBoard[targetId] === "O") {
+    alert('Life finds a way \n but you will have to find another way \n because that spot is taken')
+  } else {
+    updateGameBoard(targetId)
   }
-  updateGameBoard(boardLocation)
-  fillGameboardTarget(boardLocation)
 }
+
 function fillGameboardTarget(boardLocation) {
 
 }
-function updateGameBoard(boardLocation) {
-  currentGame.determineBoardStatus(boardLocation)
+function updateGameBoard(targetId) {
+  currentGame.determineBoardStatus(targetId)
   if (currentGame.turn === currentGame.player1) {
     currentGame.turn = currentGame.player2
   } else {
     currentGame.turn = currentGame.player1
   }
+  fillGameboardTarget(targetId)
 }

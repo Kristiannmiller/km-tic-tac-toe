@@ -1,8 +1,9 @@
 class Player {
-  constructor(id, token) {
+  constructor(id, token, marker) {
     this.id = id
     this.token = token
     this.wins = []
+    this.marker = marker
   }
   saveWinsToStorage() {
 

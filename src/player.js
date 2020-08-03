@@ -6,9 +6,9 @@ class Player {
     this.marker = marker
   }
   saveWinsToStorage() {
-
+    localStorage.setItem(`${this.id}-Wins`, JSON.stringify(this.wins));
   }
   retrieveWinsFromStorage() {
-
+    
   }
 }

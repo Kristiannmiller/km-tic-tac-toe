@@ -77,6 +77,7 @@ class Game {
       }
     }
     this.turn.wins.push(winningBoard)
+    this.turn.saveWinsToStorage()
   }
 
   resetBoard() {

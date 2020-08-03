@@ -26,6 +26,9 @@ function startNewGame() {
   var player1 = new Player("player1", "assets/Goldblum.gif", "X")
   var player2 = new Player("player2", "assets/trex.gif", "O")
   currentGame = new Game(player1, player2)
+  player1.retrieveWinsFromStorage()
+  player2.retrieveWinsFromStorage();
+  displayCurrentGameBoard()
 }
 
 function determineAvailability(event) {
@@ -43,8 +46,8 @@ function updateGameBoard(targetId) {
   currentGame.changePlayers()
   displayCurrentGameBoard()
   if(currentGame.winner !== undefined) {
-      setTimeout(determineGameResult, 1000)
-      setTimeout(resetGame, 6000)
+      setTimeout(determineGameResult, 700)
+      setTimeout(resetGame, 3000)
   }
 }
 
@@ -63,6 +66,12 @@ function displayCurrentGameBoard() {
     }
   }
   turnImage.src = `${currentGame.turn.token}`
+  displayPlayerScores()
+}
+
+function displayPlayerScores() {
+  document.querySelector('.player1-score').innerHTML = `${currentGame.player1.wins.length} WINS`
+  document.querySelector('.player2-score').innerHTML = `${currentGame.player2.wins.length} WINS`
 }
 
 function determineGameResult() {
@@ -85,16 +94,16 @@ function displayTieResult() {
 }
 
 function displayWinResult() {
-  var scoreboard = document.querySelector(`.${currentGame.winner.id}-score`)
+  // var scoreboard = document.querySelector(`.${currentGame.winner.id}-score`)
   var winnerDeclaration = document.querySelector('.winner-token')
   turnDeclaration.style.display = "none"
-  scoreboard.innerHTML = `${currentGame.turn.wins.length} WINS`
+  // scoreboard.innerHTML = `${currentGame.turn.wins.length} WINS`
   gameboard.innerHTML = ""
   gameboard.innerHTML +=
 
   `<footer class="game-result">
-  <img class="winner-token" src="${currentGame.turn.token}" alt="${currentGame.turn.token}">
-  <h1>WON!</h1>
+    <img class="winner-token" src="${currentGame.turn.token}" alt="${currentGame.turn.token}">
+    <h1>WON!</h1>
   </footer>`
 }
 

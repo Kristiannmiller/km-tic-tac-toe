@@ -68,11 +68,18 @@ class Game {
   }
 
   saveWinningBoard(player) {
-    this.turn.wins.push(this)
-    // Rewrite winning board so that numbers are empty strings
-    // send to player.wins
-
+    var winningBoard = []
+    for(var i = 0; i < this.currentBoard.length; i++) {
+      if(this.currentBoard[i] === "X" || this.currentBoard[i] === "O") {
+        winningBoard.push(this.currentBoard[i])
+      } else {
+        winningBoard.push("")
+      }
+    }
+    this.turn.wins.push(winningBoard)
+    this.turn.saveWinsToStorage()
   }
+
   resetBoard() {
     this.currentBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     this.turn = this.player1

@@ -10,23 +10,16 @@ var turnImage = document.querySelector('.turn-token')
 
 // ********** EVENT LISTENERS **********
 
-gameboard.addEventListener('click', takeTurn)
+gameboard.addEventListener('click', determineTargetLocation)
 window.addEventListener('load', startNewGame)
 
 // ******** FUNCTIONS/EVENTHANDLERS **********
 
-function takeTurn(event) {
+function determineTargetLocation(event) {
   if(determineAvailability(event)) {
-    var targetId = determineBoardLocation(event);
+    var targetId = parseInt(event.target.id);
     updateGameBoard(targetId)
-  // timeout - startNewGame
-
-
-  console.log(currentGame);
-  // if(!currentGame.winner === undefined) {
-  //   currentGame.resetBoard()
-      // timeout??
-
+    console.log(currentGame);
   }
 }
 
@@ -34,11 +27,6 @@ function startNewGame() {
   var player1 = new Player("player1", "assets/Goldblum.gif", "X")
   var player2 = new Player("player2", "assets/trex.gif", "O")
   currentGame = new Game(player1, player2)
-}
-
-function determineBoardLocation(event) {
-  var targetId = parseInt(event.target.id)
-  return targetId
 }
 
 function determineAvailability(event) {
@@ -58,7 +46,7 @@ function updateGameBoard(targetId) {
   if(currentGame.winner !== undefined) {
       determineGameResult()
       currentGame.resetBoard()
-  //     setTimeout(displayCurrentGameBoard(), 100000);
+  //  setTimeout(displayCurrentGameBoard(), 10000);
   }
 }
 

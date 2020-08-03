@@ -4,7 +4,7 @@
 - [Kristi Miller](https://github.com/Kristiannmiller)
 
 ### Project Manager
-- [Hannah Hudson](hhttps://github.com/hannahhch)
+- [Hannah Hudson](https://github.com/hannahhch)
 
 ### Project Links
 - [Repo](https://github.com/Kristiannmiller/km-tic-tac-toe)
@@ -24,8 +24,9 @@ I will use all the tools I have acquired in Mod 1 to accomplish the completion o
 
 7/30: Gave day one deliverables to instructors and reviewed the project scope. Created a GitHub Project boards planning out the steps of the project I would like to accomplish each day.
 
-7/31:
-8/1:
+7/31: Found and edited image assets for player tokens, finalized HTML framework.
+
+8/1: 
 8/2:
 8/3:
 8/4: Project due at 9:00pm

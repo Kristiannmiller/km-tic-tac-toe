@@ -46,7 +46,7 @@ class Game {
       (currentPlayerTurns.includes(this.winningCombinations[i][1])) &&
       (currentPlayerTurns.includes(this.winningCombinations[i][2]))) {
         this.winner = this.turn
-        // this.turn.wins.push(this)
+        this.saveWinningBoard()
         // this.resetBoard()
         break
       } else {
@@ -68,6 +68,7 @@ class Game {
   }
 
   saveWinningBoard(player) {
+    this.turn.wins.push(this)
     // Rewrite winning board so that numbers are empty strings
     // send to player.wins
 

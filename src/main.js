@@ -72,6 +72,7 @@ function updateTurnVisuals(targetId) {
 }
 
 function updateResultVisuals() {
+  console.log(`.${currentGame.winner.id}-score`);
   var scoreboard = document.querySelector(`.${currentGame.winner.id}-score`)
   var winnerDeclaration = document.querySelector('.winner-token')
   if(currentGame.winner === "tie") {

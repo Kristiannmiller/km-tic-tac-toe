@@ -28,7 +28,8 @@ I will use all the tools I have acquired in Mod 1 to accomplish the completion o
 
 8/1: Added CSS styling to resemble wireframe idea. Plan to revisit CSS once functionality is finished. Added basic class syntax, properties, and methods to Game.js and Player.js files as outlined in rubric. Linked all .js files to index.html.
 
-8/2:
+8/2: Worked on some CSS styling details. Created functions to manipulate the data model and tested data model updates using the in-browser console. Began working on functions to update the DOM. Cleaned up and refactored repetitory/unused code.
+
 8/3:
 8/4: Project due at 9:00pm
 

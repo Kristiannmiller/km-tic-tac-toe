@@ -93,8 +93,8 @@ function displayWinResult() {
   gameboard.innerHTML +=
 
   `<footer class="game-result">
-  <img class="winner-token" src="${currentGame.turn.token}" alt="${currentGame.turn.token}">
-  <h1>WON!</h1>
+    <img class="winner-token" src="${currentGame.turn.token}" alt="${currentGame.turn.token}">
+    <h1>WON!</h1>
   </footer>`
 }
 

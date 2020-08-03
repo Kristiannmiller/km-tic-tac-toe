@@ -27,7 +27,7 @@ function startNewGame() {
   var player2 = new Player("player2", "assets/trex.gif", "O")
   currentGame = new Game(player1, player2)
   player1.retrieveWinsFromStorage()
-  player2.retrieveWinsFromStorage()
+  player2.retrieveWinsFromStorage();
 }
 
 function determineAvailability(event) {
@@ -65,6 +65,12 @@ function displayCurrentGameBoard() {
     }
   }
   turnImage.src = `${currentGame.turn.token}`
+  displayPlayerScores()
+}
+
+function displayPlayerScores() {
+  document.querySelector('.player1-score').innerHTML = `${currentGame.player1.wins.length} WINS`
+  document.querySelector('.player2-score').innerHTML = `${currentGame.player2.wins.length} WINS`
 }
 
 function determineGameResult() {
@@ -87,10 +93,10 @@ function displayTieResult() {
 }
 
 function displayWinResult() {
-  var scoreboard = document.querySelector(`.${currentGame.winner.id}-score`)
+  // var scoreboard = document.querySelector(`.${currentGame.winner.id}-score`)
   var winnerDeclaration = document.querySelector('.winner-token')
   turnDeclaration.style.display = "none"
-  scoreboard.innerHTML = `${currentGame.turn.wins.length} WINS`
+  // scoreboard.innerHTML = `${currentGame.turn.wins.length} WINS`
   gameboard.innerHTML = ""
   gameboard.innerHTML +=
 

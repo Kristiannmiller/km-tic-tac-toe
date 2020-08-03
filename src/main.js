@@ -14,43 +14,64 @@ window.addEventListener('load', startNewGame)
 // ******** FUNCTIONS/EVENTHANDLERS **********
 
 function takeTurn(event) {
-  determineBoardLocation(event);
+  // determine target gridLocation
+  var targetId = determineBoardLocation(event);
+  // determine whether the location is a viable option
+  determineAvailability(targetId) ? fillGameboardTarget(targetId) : false
+
+  //
+  // if location is available, change data model
+  // update dom
+  // determine if game is over
+  // if true, update dom, then:
+  // timeout - startNewGame
+
+
   console.log(currentGame);
   if(!currentGame.winner === undefined) {
-      // timeout
-      // clear board
+    currentGame.resetBoard()
+      // timeout??
   }
 }
 
 function startNewGame() {
-  var id1 = Math.floor(Math.random() * 10000)
-  var id2 = Math.floor(Math.random() * 10000)
-  var player1 = new Player(id1, "assets/Goldblum.gif", "X")
-  var player2 = new Player(id2, "assets/trex.gif", "O")
+  var player1 = new Player("player1", "assets/Goldblum.gif", "X")
+  var player2 = new Player("player2", "assets/trex.gif", "O")
   currentGame = new Game(player1, player2)
   console.log(currentGame);
 }
 
 function determineBoardLocation(event) {
-  var targetId = parseInt(event.target.id);
+
+  var targetId = parseInt(event.target.id)
+  return targetId
+}
+
+    // updateGameBoard(targetId)
+
+function determineAvailability(targetId) {
   if(targetId === "") {
     alert('Clever Girl! \n Please pick a valid spot')
   } else if(currentGame.currentBoard[targetId] === "X" || currentGame.currentBoard[targetId] === "O") {
     alert('Life finds a way \n but you will have to find another way \n because that spot is taken')
   } else {
-    updateGameBoard(targetId)
+    return true
   }
 }
 
-function fillGameboardTarget(targetId) {
+
+function updateGameVisuals(targetId) {
   var gridLocation = document.getElementById(`${targetId}`)
-  gridLocation.innerHTML +=
-      `<img class="player-gamepiece" src="${currentGame.turn.token}" alt="">`
+  var scoreboard = document.querySelector(`.${currentGame.turn.id}-score`)
+  var turnDeclaration = document.querySelector('.turn-determination')
+  gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.turn.token}" alt="">`
+  if(currentGame.)
+
 }
 
 function updateGameBoard(targetId) {
   currentGame.determineBoardStatus(targetId)
-  fillGameboardTarget(targetId)
+  updateGameVisuals(targetId)
   if(currentGame.winner === undefined) {
     currentGame.turn === currentGame.player1 ? currentGame.turn = currentGame.player2 : currentGame.turn = currentGame.player1;
   }

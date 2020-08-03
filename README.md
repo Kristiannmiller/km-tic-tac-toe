@@ -4,7 +4,7 @@
 - [Kristi Miller](https://github.com/Kristiannmiller)
 
 ### Project Manager
-- [Hannah Hudson](hhttps://github.com/hannahhch)
+- [Hannah Hudson](https://github.com/hannahhch)
 
 ### Project Links
 - [Repo](https://github.com/Kristiannmiller/km-tic-tac-toe)
@@ -24,10 +24,14 @@ I will use all the tools I have acquired in Mod 1 to accomplish the completion o
 
 7/30: Gave day one deliverables to instructors and reviewed the project scope. Created a GitHub Project boards planning out the steps of the project I would like to accomplish each day.
 
-7/31:
-8/1:
-8/2:
-8/3:
+7/31: Found and edited image assets for player tokens, finalized HTML framework.
+
+8/1: Added CSS styling to resemble wireframe idea. Plan to revisit CSS once functionality is finished. Added basic class syntax, properties, and methods to Game.js and Player.js files as outlined in rubric. Linked all .js files to index.html.
+
+8/2: Worked on some CSS styling details. Created functions to manipulate the data model and tested data model updates using the in-browser console. Began working on functions to update the DOM. Cleaned up and refactored repetitious/unused code.
+
+8/3: Refactored functions updating the DOM to directly reflect data model. Added additional delegation to DOM update functions. Added timeout features. Refactored repetitious/unused code.
+
 8/4: Project due at 9:00pm
 
 ## Showcase

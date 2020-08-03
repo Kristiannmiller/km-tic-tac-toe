@@ -10,23 +10,15 @@ var turnImage = document.querySelector('.turn-token')
 
 // ********** EVENT LISTENERS **********
 
-gameboard.addEventListener('click', takeTurn)
+gameboard.addEventListener('click', determineTargetLocation)
 window.addEventListener('load', startNewGame)
 
 // ******** FUNCTIONS/EVENTHANDLERS **********
 
-function takeTurn(event) {
+function determineTargetLocation(event) {
   if(determineAvailability(event)) {
-    var targetId = determineBoardLocation(event);
+    var targetId = parseInt(event.target.id);
     updateGameBoard(targetId)
-  // timeout - startNewGame
-
-
-  console.log(currentGame);
-  // if(!currentGame.winner === undefined) {
-  //   currentGame.resetBoard()
-      // timeout??
-
   }
 }
 
@@ -34,11 +26,6 @@ function startNewGame() {
   var player1 = new Player("player1", "assets/Goldblum.gif", "X")
   var player2 = new Player("player2", "assets/trex.gif", "O")
   currentGame = new Game(player1, player2)
-}
-
-function determineBoardLocation(event) {
-  var targetId = parseInt(event.target.id)
-  return targetId
 }
 
 function determineAvailability(event) {
@@ -56,9 +43,8 @@ function updateGameBoard(targetId) {
   currentGame.changePlayers()
   displayCurrentGameBoard()
   if(currentGame.winner !== undefined) {
-      determineGameResult()
-      currentGame.resetBoard()
-  //     setTimeout(displayCurrentGameBoard(), 100000);
+      setTimeout(determineGameResult, 1000)
+      setTimeout(resetGame, 6000)
   }
 }
 
@@ -110,4 +96,9 @@ function displayWinResult() {
   <img class="winner-token" src="${currentGame.turn.token}" alt="${currentGame.turn.token}">
   <h1>WON!</h1>
   </footer>`
+}
+
+function resetGame() {
+  currentGame.resetBoard()
+  displayCurrentGameBoard()
 }

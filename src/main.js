@@ -46,8 +46,8 @@ function updateGameBoard(targetId) {
   currentGame.changePlayers()
   displayCurrentGameBoard()
   if(currentGame.winner !== undefined) {
-      setTimeout(determineGameResult, 1000)
-      setTimeout(resetGame, 6000)
+      setTimeout(determineGameResult, 700)
+      setTimeout(resetGame, 3000)
   }
 }
 

@@ -15,8 +15,9 @@ class Game {
 
   determineBoardStatus(targetId) {
     this.updateCurrentBoard(targetId)
-    if(this.mapPlays().length >= 3) {
-      this.determineWin(this.mapPlays())
+    var currentPlayerTurns = this.mapPlays()
+    if(currentPlayerTurns.length >= 3) {
+      this.determineWin(currentPlayerTurns)
     }
   }
 
@@ -47,7 +48,6 @@ class Game {
       (currentPlayerTurns.includes(this.winningCombinations[i][2]))) {
         this.winner = this.turn
         this.saveWinningBoard()
-        // this.resetBoard()
         break
       } else {
         this.determineTie()

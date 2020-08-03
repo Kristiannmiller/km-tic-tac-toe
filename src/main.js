@@ -28,6 +28,7 @@ function startNewGame() {
   currentGame = new Game(player1, player2)
   player1.retrieveWinsFromStorage()
   player2.retrieveWinsFromStorage();
+  displayCurrentGameBoard()
 }
 
 function determineAvailability(event) {

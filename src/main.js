@@ -26,6 +26,8 @@ function startNewGame() {
   var player1 = new Player("player1", "assets/Goldblum.gif", "X")
   var player2 = new Player("player2", "assets/trex.gif", "O")
   currentGame = new Game(player1, player2)
+  player1.retrieveWinsFromStorage()
+  player2.retrieveWinsFromStorage()
 }
 
 function determineAvailability(event) {

@@ -5,6 +5,7 @@ var currentGame;
 // ********** GAMESPACES **********
 
 var gameboard = document.querySelector('.gameboard');
+var turnDeclaration = document.querySelector('.turn-token')
 
 // ********** EVENT LISTENERS **********
 
@@ -17,7 +18,8 @@ function takeTurn(event) {
   // determine target gridLocation
   var targetId = determineBoardLocation(event);
   // determine whether the location is a viable option
-  determineAvailability(targetId) ? fillGameboardTarget(targetId) : false
+  if(determineAvailability(targetId)) {
+    updateGameBoard(targetId)
 
   //
   // if location is available, change data model
@@ -31,6 +33,7 @@ function takeTurn(event) {
   if(!currentGame.winner === undefined) {
     currentGame.resetBoard()
       // timeout??
+    }
   }
 }
 
@@ -42,7 +45,6 @@ function startNewGame() {
 }
 
 function determineBoardLocation(event) {
-
   var targetId = parseInt(event.target.id)
   return targetId
 }
@@ -60,19 +62,46 @@ function determineAvailability(targetId) {
 }
 
 
-function updateGameVisuals(targetId) {
+function updateTurnVisuals(targetId) {
   var gridLocation = document.getElementById(`${targetId}`)
-  var scoreboard = document.querySelector(`.${currentGame.turn.id}-score`)
-  var turnDeclaration = document.querySelector('.turn-determination')
   gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.turn.token}" alt="">`
-  if(currentGame.)
+  if(currentGame.winner === undefined) {
+    currentGame.changePlayers()
+    turnDeclaration.src = `${currentGame.turn.token}`
+  }
+}
 
+function updateResultVisuals() {
+  var scoreboard = document.querySelector(`.${currentGame.winner.id}-score`)
+  var winnerDeclaration = document.querySelector('.winner-token')
+  if(currentGame.winner === "tie") {
+    gameboard.innerHTML = ""
+    gameboard.innerHTML +=
+
+    `<footer class="game-result">
+      <img class="winner-token" src="assets/Tie.jpeg" alt="angry t-rex standing over destroyed Jurassic Park car">
+      <h1>It's A Tie!</h1>
+    </footer>`
+
+  } else {
+    scoreboard.innerHTML = `${currentGame.turn.wins.length} WINS`
+    gameboard.innerHTML = ""
+    gameboard.innerHTML +=
+
+    `<footer class="game-result">
+      <img class="winner-token" src="${currentGame.turn.token}" alt="${currentGame.turn.token}">
+      <h1>WON!</h1>
+    </footer>`
+
+  }
 }
 
 function updateGameBoard(targetId) {
   currentGame.determineBoardStatus(targetId)
-  updateGameVisuals(targetId)
   if(currentGame.winner === undefined) {
-    currentGame.turn === currentGame.player1 ? currentGame.turn = currentGame.player2 : currentGame.turn = currentGame.player1;
+    updateTurnVisuals(targetId)
+  } else {
+    updateTurnVisuals(targetId)
+    updateResultVisuals()
   }
 }

@@ -76,5 +76,7 @@ class Game {
   resetBoard() {
     this.currentBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8]
     this.turn = this.player1
+    this.turnCount = 0
+    this.winner = undefined
   }
 }

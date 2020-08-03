@@ -5,7 +5,8 @@ var currentGame;
 // ********** GAMESPACES **********
 
 var gameboard = document.querySelector('.gameboard');
-var turnDeclaration = document.querySelector('.turn-token')
+var turnDeclaration = document.querySelector('.turn-determination')
+var turnImage = document.querySelector('.turn-token')
 
 // ********** EVENT LISTENERS **********
 
@@ -18,12 +19,6 @@ function takeTurn(event) {
   if(determineAvailability(event)) {
     var targetId = determineBoardLocation(event);
     updateGameBoard(targetId)
-
-  //
-  // if location is available, change data model
-  // update dom
-  // determine if game is over
-  // if true, update dom, then:
   // timeout - startNewGame
 
 
@@ -62,11 +57,13 @@ function updateGameBoard(targetId) {
   displayCurrentGameBoard()
   if(currentGame.winner !== undefined) {
       determineGameResult()
-
+      currentGame.resetBoard()
+  //     setTimeout(displayCurrentGameBoard(), 100000);
   }
 }
 
 function displayCurrentGameBoard() {
+  turnDeclaration.style.display = "flex"
   gameboard.innerHTML = ""
   for(var i = 0; i < currentGame.currentBoard.length; i++) {
     gameboard.innerHTML +=
@@ -79,18 +76,8 @@ function displayCurrentGameBoard() {
       gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player2.token}" alt="">`
     }
   }
-  turnDeclaration.src = `${currentGame.turn.token}`
+  turnImage.src = `${currentGame.turn.token}`
 }
-
-// function updateTurnVisuals(targetId) {
-//   var gridLocation = document.getElementById(`${targetId}`)
-//   gridLocation.innerHTML = ""
-//   gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.turn.token}" alt="">`
-//   if(currentGame.winner === undefined) {
-    // currentGame.changePlayers()
-    // turnDeclaration.src = `${currentGame.turn.token}`
-//   }
-// }
 
 function determineGameResult() {
   if(currentGame.winner === "tie") {
@@ -101,7 +88,7 @@ function determineGameResult() {
 }
 
 function displayTieResult() {
-  document.querySelector('.turn-determination').style.display = "none"
+  turnDeclaration.style.display = "none"
   gameboard.innerHTML = ""
   gameboard.innerHTML +=
 
@@ -114,7 +101,7 @@ function displayTieResult() {
 function displayWinResult() {
   var scoreboard = document.querySelector(`.${currentGame.winner.id}-score`)
   var winnerDeclaration = document.querySelector('.winner-token')
-  document.querySelector('.turn-determination').style.display = "none"
+  turnDeclaration.style.display = "none"
   scoreboard.innerHTML = `${currentGame.turn.wins.length} WINS`
   gameboard.innerHTML = ""
   gameboard.innerHTML +=

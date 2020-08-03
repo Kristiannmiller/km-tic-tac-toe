@@ -46,6 +46,8 @@ class Game {
       (currentPlayerTurns.includes(this.winningCombinations[i][1])) &&
       (currentPlayerTurns.includes(this.winningCombinations[i][2]))) {
         this.winner = this.turn
+        this.saveWinningBoard()
+        // this.resetBoard()
         break
       } else {
         this.determineTie()
@@ -57,13 +59,24 @@ class Game {
     this.turnCount === 9 ? this.winner = "tie" : this.winner = undefined
   }
 
+  changePlayers() {
+    if(this.winner === undefined) {
+      this.turn === this.player1 ?
+      this.turn = this.player2 :
+      this.turn = this.player1;
+    }
+  }
+
   saveWinningBoard(player) {
+    this.turn.wins.push(this)
     // Rewrite winning board so that numbers are empty strings
     // send to player.wins
 
   }
   resetBoard() {
-    // clear currentBoard
-    // timeout?
+    this.currentBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8]
+    this.turn = this.player1
+    this.turnCount = 0
+    this.winner = undefined
   }
 }

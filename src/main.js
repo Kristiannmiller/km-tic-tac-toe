@@ -1,115 +1,121 @@
-// ********** LOCAL VARIABLE **********
+// ********** GLOBAL VARIABLE **********
 
 var currentGame;
 
-// ********** GAMESPACES **********
+// ********** QUERIES  **********
 
-var gameboard = document.querySelector('.gameboard');
-var turnDeclaration = document.querySelector('.turn-determination')
-var turnImage = document.querySelector('.turn-token')
+var gameboard = document.querySelector(".gameboard");
+var turnDeclaration = document.querySelector(".turn-determination");
 
 // ********** EVENT LISTENERS **********
 
-gameboard.addEventListener('click', determineTargetLocation)
-window.addEventListener('load', startNewGame)
+window.addEventListener("load", startNewGame);
+gameboard.addEventListener("click", determineTargetLocation);
 
 // ******** FUNCTIONS/EVENTHANDLERS **********
 
-function determineTargetLocation(event) {
-  if(determineAvailability(event)) {
-    var target = event.target.id;
-    var boardNumber = parseInt(target[5])
-    updateGameBoard(boardNumber)
-  }
-}
-
 function startNewGame() {
-  var player1 = new Player("player1", "assets/Goldblum.gif", "X", "assets/GoldblumWin.jpg")
-  var player2 = new Player("player2", "assets/trex.gif", "O", "assets/TrexWin.jpg")
-  currentGame = new Game(player1, player2)
-  player1.retrieveWinsFromStorage()
+  var player1 = new Player('player1', 'assets/Goldblum.gif', 'X', 'assets/GoldblumWin.jpg');
+  var player2 = new Player('player2', 'assets/trex.gif', 'O', 'assets/TrexWin.jpg');
+  currentGame = new Game(player1, player2);
+  player1.retrieveWinsFromStorage();
   player2.retrieveWinsFromStorage();
-  displayCurrentGameBoard()
-}
+  displayCurrentGameBoard();
+};
+
+function determineTargetLocation(event) {
+  var target = event.target.id;
+  var boardNumber = parseInt(target[5]);
+  if (determineAvailability(event)) {
+    updateGameBoard(boardNumber);
+  };
+};
+
 
 function determineAvailability(event) {
-  if(event.target.className === "gameboard") {
-    alert('Clever Girl! \n Please pick a valid spot')
-  } else if(event.target.className === "player-gamepiece") {
-    alert('Life finds a way \n but you will have to find another way \n because that spot is taken')
+  if (event.target.className === 'gameboard') {
+    alert('Clever Girl! \n Please pick a valid spot');
+  } else if (event.target.className === 'player-gamepiece') {
+    alert('Life finds a way \n but you will have to find another way \n because that spot is taken');
   } else {
-    return true
-  }
-}
+    return true;
+  };
+};
 
 function updateGameBoard(boardNumber) {
-  currentGame.determineBoardStatus(boardNumber)
-  currentGame.changePlayers()
-  displayCurrentGameBoard()
+  currentGame.determineBoardStatus(boardNumber);
+  displayCurrentGameBoard();
   if(currentGame.winner !== undefined) {
-      setTimeout(determineGameResult, 700)
-      setTimeout(resetGame, 3000)
-  }
-}
+      setTimeout(determineGameResult, 700);
+      setTimeout(resetGame, 3000);
+  };
+};
+
+function toggleGameBoard(gameState) {
+  if (gameState === 'continue') {
+    turnDeclaration.style.display = "flex";
+  } else {
+    turnDeclaration.style.display = "none";
+  };
+
+  gameboard.innerHTML = '';
+};
 
 function displayCurrentGameBoard() {
-  turnDeclaration.style.display = "flex"
-  gameboard.style.display = "grid"
-  gameboard.innerHTML = ""
-  for(var i = 0; i < currentGame.currentBoard.length; i++) {
+  toggleGameBoard('continue');
+  for (var i = 0; i < currentGame.currentBoard.length; i++) {
     gameboard.innerHTML +=
-    `<div id="board${i}">
-    </div>`
-    var gridLocation = document.getElementById(`board${i}`)
+      `<div id="board${i}"></div>`;
+    var gridLocation = document.getElementById(`board${i}`);
     if(currentGame.currentBoard[i] === currentGame.player1.marker) {
-      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player1.token}" alt="${currentGame.player1.token}">`
+      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player1.token}">`;
     } else if(currentGame.currentBoard[i] === currentGame.player2.marker) {
-      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player2.token}" alt="${currentGame.player2.token}">`
-    }
-  }
-  turnImage.src = `${currentGame.turn.token}`
-  displayPlayerScores()
-}
+      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player2.token}">`;
+    };
+  };
 
-function displayPlayerScores() {
-  document.querySelector('.player1-score').innerHTML = `${currentGame.player1.wins.length} WINS`
-  document.querySelector('.player2-score').innerHTML = `${currentGame.player2.wins.length} WINS`
-}
+  displayPlayerStats();
+};
+
+function displayPlayerStats() {
+  var turnImage = document.querySelector(".turn-token");
+  var scorePlayer1 = document.querySelector(".player1-score");
+  var scorePlayer2 = document.querySelector(".player2-score");
+
+  turnImage.src = `${currentGame.turn.token}`;
+  scorePlayer1.innerHTML = `${currentGame.player1.wins.length} WINS`;
+  scorePlayer2.innerHTML = `${currentGame.player2.wins.length} WINS`;
+};
 
 function determineGameResult() {
-  if(currentGame.winner === "tie") {
-    displayTieResult()
+  if(currentGame.winner === 'tie') {
+    displayTieResult();
   } else {
-    displayWinResult()
-  }
-}
+    displayWinResult();
+  };
+};
 
 function displayTieResult() {
-  turnDeclaration.style.display = "none"
-  gameboard.style.display = "inline"
-  gameboard.innerHTML = ""
+  toggleGameBoard('end');
   gameboard.innerHTML +=
 
   `<footer class="game-result">
     <img class="winner-token" src="assets/tiedgame.jpg" alt="angry t-rex standing over frightened people">
     <h1>It's A Tie!</h1>
-  </footer>`
-}
+  </footer>`;
+};
 
 function displayWinResult() {
-  var winnerDeclaration = document.querySelector('.winner-token')
-  gameboard.style.display = "inline"
-  turnDeclaration.style.display = "none"
-  gameboard.innerHTML = ""
+  var winnerDeclaration = document.querySelector(".winner-token");
+  toggleGameBoard('end');
   gameboard.innerHTML +=
-
-  `<footer class="game-result">
-    <img class="winner-token" src="${currentGame.turn.winningImage}" alt="${currentGame.turn.winningImage}">
-    <h1>WON!</h1>
-  </footer>`
-}
+    `<footer class="game-result">
+        <img class="winner-token" src="${currentGame.turn.winningImage}">
+        <h1>WON!</h1>
+      </footer>`;
+};
 
 function resetGame() {
-  currentGame.resetBoard()
-  displayCurrentGameBoard()
-}
+  currentGame.resetBoard();
+  displayCurrentGameBoard();
+};

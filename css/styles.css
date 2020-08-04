@@ -1,5 +1,9 @@
 /* ~~~~~ GLOBAL RULES ~~~~~ */
 
+@font-face {
+    font-family: 'jurassic';
+    src: url('./JurassicPark-BL48.ttf');
+  }
 
 /*=== Reset ===*/
 
@@ -14,7 +18,7 @@ html, body {
 
 body {
   display: flex;
-  font-family: 'Open Sans';
+  font-family: 'Helvetica';
 }
 
 /* ~~~~~ SCOREBOARDS ~~~~~ */
@@ -40,11 +44,12 @@ h2 {
   padding: 0 3vh 3vh 3vh;
 }
 .header {
+  font-family: 'jurassic';
   border-style: ridge;
-  border-color: #f0b83e;
+  border-color: #791d18;
   color: white;
-  font-size: xxx-large;
-  margin: 20px;
+  font-size: 8em;
+  margin: 15px;
   padding: 10px;
   background-color: #6d6d6d;
   background-blend-mode: overlay;

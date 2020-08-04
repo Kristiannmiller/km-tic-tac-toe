@@ -2,6 +2,7 @@ class Player {
   constructor(id, token, marker, winningImage) {
     this.id = id;
     this.token = token;
+    this.currentPlayMap = [];
     this.wins = [];
     this.marker = marker;
     this.winningImage = winningImage;

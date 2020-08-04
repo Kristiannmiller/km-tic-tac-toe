@@ -33,14 +33,14 @@ function determineTargetLocation(event) {
 
 
 function determineAvailability(event) {
-  if(event.target.className === "gameboard") {
-    alert('Clever Girl! \n Please pick a valid spot')
-  } else if(event.target.className === "player-gamepiece") {
-    alert('Life finds a way \n but you will have to find another way \n because that spot is taken')
+  if (event.target.className === "gameboard") {
+    alert('Clever Girl! \n Please pick a valid spot');
+  } else if (event.target.className === "player-gamepiece") {
+    alert('Life finds a way \n but you will have to find another way \n because that spot is taken');
   } else {
-    return true
-  }
-}
+    return true;
+  };
+};
 
 function updateGameBoard(boardNumber) {
   currentGame.determineBoardStatus(boardNumber)
@@ -86,7 +86,7 @@ function displayPlayerStats() {
   turnImage.src = `${currentGame.turn.token}`;
   scorePlayer1.innerHTML = `${currentGame.player1.wins.length} WINS`;
   scorePlayer2.innerHTML = `${currentGame.player2.wins.length} WINS`;
-}
+};
 
 function determineGameResult() {
   if(currentGame.winner === "tie") {

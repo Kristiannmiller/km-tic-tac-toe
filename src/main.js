@@ -46,14 +46,14 @@ function updateGameBoard(targetId) {
   currentGame.changePlayers()
   displayCurrentGameBoard()
   if(currentGame.winner !== undefined) {
-    determineGameResult()
-      // setTimeout(determineGameResult, 700)
-      // setTimeout(resetGame, 3000)
+      setTimeout(determineGameResult, 700)
+      setTimeout(resetGame, 3000)
   }
 }
 
 function displayCurrentGameBoard() {
   turnDeclaration.style.display = "flex"
+  gameboard.style.display = "grid"
   gameboard.innerHTML = ""
   for(var i = 0; i < currentGame.currentBoard.length; i++) {
     gameboard.innerHTML +=

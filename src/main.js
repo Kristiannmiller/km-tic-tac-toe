@@ -23,8 +23,8 @@ function determineTargetLocation(event) {
 }
 
 function startNewGame() {
-  var player1 = new Player("player1", "assets/Goldblum.gif", "X")
-  var player2 = new Player("player2", "assets/trex.gif", "O")
+  var player1 = new Player("player1", "assets/Goldblum.gif", "X", "assets/GoldblumWin.jpg")
+  var player2 = new Player("player2", "assets/trex.gif", "O", "assets/TrexWin.jpg")
   currentGame = new Game(player1, player2)
   player1.retrieveWinsFromStorage()
   player2.retrieveWinsFromStorage();
@@ -46,8 +46,9 @@ function updateGameBoard(targetId) {
   currentGame.changePlayers()
   displayCurrentGameBoard()
   if(currentGame.winner !== undefined) {
-      setTimeout(determineGameResult, 700)
-      setTimeout(resetGame, 3000)
+    determineGameResult()
+      // setTimeout(determineGameResult, 700)
+      // setTimeout(resetGame, 3000)
   }
 }
 
@@ -84,25 +85,25 @@ function determineGameResult() {
 
 function displayTieResult() {
   turnDeclaration.style.display = "none"
+  gameboard.style.display = "inline"
   gameboard.innerHTML = ""
   gameboard.innerHTML +=
 
   `<footer class="game-result">
-    <img class="winner-token" src="assets/Tie.jpeg" alt="angry t-rex standing over destroyed Jurassic Park car">
+    <img class="winner-token" src="assets/tiedgame.jpg" alt="angry t-rex standing over frightened people">
     <h1>It's A Tie!</h1>
   </footer>`
 }
 
 function displayWinResult() {
-  // var scoreboard = document.querySelector(`.${currentGame.winner.id}-score`)
   var winnerDeclaration = document.querySelector('.winner-token')
+  gameboard.style.display = "inline"
   turnDeclaration.style.display = "none"
-  // scoreboard.innerHTML = `${currentGame.turn.wins.length} WINS`
   gameboard.innerHTML = ""
   gameboard.innerHTML +=
 
   `<footer class="game-result">
-    <img class="winner-token" src="${currentGame.turn.token}" alt="${currentGame.turn.token}">
+    <img class="winner-token" src="${currentGame.turn.winningImage}" alt="${currentGame.turn.winningImage}">
     <h1>WON!</h1>
   </footer>`
 }

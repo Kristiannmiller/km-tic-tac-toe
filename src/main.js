@@ -6,7 +6,6 @@ var currentGame;
 
 var gameboard = document.querySelector('.gameboard');
 var turnDeclaration = document.querySelector('.turn-determination');
-var turnImage = document.querySelector('.turn-token');
 
 // ********** EVENT LISTENERS **********
 
@@ -56,35 +55,37 @@ function updateGameBoard(boardNumber) {
 function toggleGameBoard(gameState) {
   if (gameState === 'continue') {
     turnDeclaration.style.display = 'flex';
-    gameboard.style.display = 'grid';
   } else {
     turnDeclaration.style.display = 'none';
-    gameboard.style.display = 'inline';
   };
 
   gameboard.innerHTML = '';
 };
 
 function displayCurrentGameBoard() {
-  toggleGameBoard('continue')
-  for(var i = 0; i < currentGame.currentBoard.length; i++) {
+  toggleGameBoard('continue');
+  for (var i = 0; i < currentGame.currentBoard.length; i++) {
     gameboard.innerHTML +=
-    `<div id="board${i}">
-    </div>`
-    var gridLocation = document.getElementById(`board${i}`)
+      `<div id='board${i}'></div>`;
+    var gridLocation = document.getElementById(`board${i}`);
     if(currentGame.currentBoard[i] === currentGame.player1.marker) {
-      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player1.token}" alt="${currentGame.player1.token}">`
+      gridLocation.innerHTML += `<img class='player-gamepiece' src='${currentGame.player1.token}'>`;
     } else if(currentGame.currentBoard[i] === currentGame.player2.marker) {
-      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player2.token}" alt="${currentGame.player2.token}">`
-    }
-  }
-  turnImage.src = `${currentGame.turn.token}`
-  displayPlayerScores()
-}
+      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player2.token}">`;
+    };
+  };
 
-function displayPlayerScores() {
-  document.querySelector('.player1-score').innerHTML = `${currentGame.player1.wins.length} WINS`
-  document.querySelector('.player2-score').innerHTML = `${currentGame.player2.wins.length} WINS`
+  displayPlayerStats();
+};
+
+function displayPlayerStats() {
+  var turnImage = document.querySelector('.turn-token');
+  var scorePlayer1 = document.querySelector('.player1-score');
+  var scorePlayer2 = document.querySelector('.player2-score');
+
+  turnImage.src = `${currentGame.turn.token}`;
+  scorePlayer1.innerHTML = `${currentGame.player1.wins.length} WINS`;
+  scorePlayer2.innerHTML = `${currentGame.player2.wins.length} WINS`;
 }
 
 function determineGameResult() {

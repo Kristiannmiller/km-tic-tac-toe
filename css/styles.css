@@ -40,10 +40,11 @@ h2 {
 }
 
 /* ~~~~~ GAMEBOARD ~~~~~ */
+
 .main {
   text-align: center;
   background-color: #180806;
-  padding: 0 3vh 3vh 3vh;
+  padding: 3vh;
 }
 
 .header {
@@ -54,10 +55,7 @@ h2 {
   font-size: 8em;
   margin: 15px;
   padding: 10px;
-  background-color: #6d6d6d;
-  background-blend-mode: overlay;
   background: no-repeat;
-  background-size: 100%;
 }
 
 .turn-determination-container {
@@ -78,24 +76,24 @@ h2 {
 }
 .gameboard {
   display: grid;
-  margin: 0 20px 0 -20px;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-  padding: 20px;
+  grid-gap: 5px;
+  padding: 5px;
   width: 100%;
 }
 .gameboard div {
-  height: 25vh;
-  width: 25vh;
+  height: 21vh;
+  width: 21vh;
 }
 
 .player-gamepiece {
-  height: 24vh;
-
+  height: 21vh;
 }
+
 footer {
   height: 50%;
 }
+
 .winner-token {
   width: 30em;
   padding: 5em 5em 1em 5em

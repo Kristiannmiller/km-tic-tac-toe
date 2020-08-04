@@ -43,9 +43,8 @@ function determineAvailability(event) {
 };
 
 function updateGameBoard(boardNumber) {
-  currentGame.determineBoardStatus(boardNumber)
-  currentGame.changePlayers()
-  displayCurrentGameBoard()
+  currentGame.determineBoardStatus(boardNumber);
+  displayCurrentGameBoard();
   if(currentGame.winner !== undefined) {
       setTimeout(determineGameResult, 700)
       setTimeout(resetGame, 3000)

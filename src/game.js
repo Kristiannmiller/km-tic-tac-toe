@@ -50,10 +50,10 @@ class Game {
   saveWinningBoard(player) {
     var winningBoard = [];
     for (var i = 0; i < this.currentBoard.length; i++) {
-      if (this.currentBoard[i] === "X" || this.currentBoard[i] === "O") {
+      if (this.currentBoard[i] === 'X' || this.currentBoard[i] === 'O') {
         winningBoard.push(this.currentBoard[i]);
       } else {
-        winningBoard.push("");
+        winningBoard.push('');
       };
     };
 
@@ -77,10 +77,10 @@ class Game {
 
 
   resetBoard() {
-    this.currentBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8]
-    this.turn = this.player1
-    this.turnCount = 0
-    this.winner = undefined
+    this.currentBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+    this.turn = this.player1;
+    this.turnCount = 0;
+    this.winner = undefined;
     this.player1.currentPlayMap = [];
     this.player2.currentPlayMap = [];
   }

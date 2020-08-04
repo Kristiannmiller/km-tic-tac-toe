@@ -1,36 +1,37 @@
-// ********** LOCAL VARIABLE **********
+// ********** GLOBAL VARIABLE **********
 
 var currentGame;
 
-// ********** GAMESPACES **********
+// ********** QUERIES  **********
 
 var gameboard = document.querySelector('.gameboard');
-var turnDeclaration = document.querySelector('.turn-determination')
-var turnImage = document.querySelector('.turn-token')
+var turnDeclaration = document.querySelector('.turn-determination');
+var turnImage = document.querySelector('.turn-token');
 
 // ********** EVENT LISTENERS **********
 
-gameboard.addEventListener('click', determineTargetLocation)
-window.addEventListener('load', startNewGame)
+window.addEventListener('load', startNewGame);
+gameboard.addEventListener('click', determineTargetLocation);
 
 // ******** FUNCTIONS/EVENTHANDLERS **********
 
-function determineTargetLocation(event) {
-  if(determineAvailability(event)) {
-    var target = event.target.id;
-    var boardNumber = parseInt(target[5])
-    updateGameBoard(boardNumber)
-  }
-}
-
 function startNewGame() {
-  var player1 = new Player("player1", "assets/Goldblum.gif", "X", "assets/GoldblumWin.jpg")
-  var player2 = new Player("player2", "assets/trex.gif", "O", "assets/TrexWin.jpg")
-  currentGame = new Game(player1, player2)
-  player1.retrieveWinsFromStorage()
+  var player1 = new Player("player1", "assets/Goldblum.gif", "X", "assets/GoldblumWin.jpg");
+  var player2 = new Player("player2", "assets/trex.gif", "O", "assets/TrexWin.jpg");
+  currentGame = new Game(player1, player2);
+  player1.retrieveWinsFromStorage();
   player2.retrieveWinsFromStorage();
-  displayCurrentGameBoard()
-}
+  displayCurrentGameBoard();
+};
+
+function determineTargetLocation(event) {
+  var target = event.target.id;
+  var boardNumber = parseInt(target[5]);
+  if (determineAvailability(event)) {
+    updateGameBoard(boardNumber);
+  };
+};
+
 
 function determineAvailability(event) {
   if(event.target.className === "gameboard") {
@@ -52,10 +53,20 @@ function updateGameBoard(boardNumber) {
   }
 }
 
+function toggleGameBoard(gameState) {
+  if (gameState === 'continue') {
+    turnDeclaration.style.display = 'flex';
+    gameboard.style.display = 'grid';
+  } else {
+    turnDeclaration.style.display = 'none';
+    gameboard.style.display = 'inline';
+  };
+
+  gameboard.innerHTML = '';
+};
+
 function displayCurrentGameBoard() {
-  turnDeclaration.style.display = "flex"
-  gameboard.style.display = "grid"
-  gameboard.innerHTML = ""
+  toggleGameBoard('continue')
   for(var i = 0; i < currentGame.currentBoard.length; i++) {
     gameboard.innerHTML +=
     `<div id="board${i}">
@@ -85,9 +96,7 @@ function determineGameResult() {
 }
 
 function displayTieResult() {
-  turnDeclaration.style.display = "none"
-  gameboard.style.display = "inline"
-  gameboard.innerHTML = ""
+  toggleGameBoard('end')
   gameboard.innerHTML +=
 
   `<footer class="game-result">
@@ -98,9 +107,7 @@ function displayTieResult() {
 
 function displayWinResult() {
   var winnerDeclaration = document.querySelector('.winner-token')
-  gameboard.style.display = "inline"
-  turnDeclaration.style.display = "none"
-  gameboard.innerHTML = ""
+  toggleGameBoard('end')
   gameboard.innerHTML +=
 
   `<footer class="game-result">

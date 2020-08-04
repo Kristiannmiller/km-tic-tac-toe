@@ -78,17 +78,51 @@ h2 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 5px;
-  padding: 5px;
+  padding: 15px 5px 5px 5px;
   width: 100%;
 }
 
 .gameboard div {
   height: 21vh;
   width: 21vh;
+  border-style: solid;
+  border-width: thick;
 }
 
-#0 {
-  border-style: solid;
+#board0 {
+  border-color: #180806 #f0b83e #f0b83e #180806;
+}
+
+#board1 {
+  border-color: #180806 #f0b83e #f0b83e #f0b83e;
+}
+
+#board2 {
+  border-color: #180806 #180806 #f0b83e #f0b83e;
+}
+
+#board3 {
+  border-color: #f0b83e #f0b83e #f0b83e #180806;
+}
+
+#board4 {
+  border-color: #f0b83e #f0b83e #f0b83e #f0b83e;
+}
+
+#board5 {
+  border-color: #f0b83e #180806 #f0b83e #f0b83e;
+}
+
+#board6 {
+  border-color: #f0b83e #f0b83e #180806 #180806;
+}
+
+#board7 {
+  border-color: #f0b83e #f0b83e #180806 #f0b83e;
+}
+
+#board8 {
+  border-color: #f0b83e #180806 #180806 #f0b83e;
 }
 
 .player-gamepiece {

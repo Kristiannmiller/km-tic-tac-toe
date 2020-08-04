@@ -165,5 +165,31 @@ footer {
   h2 {
     padding: 10px;
   }
-
 }
+
+@media screen and (max-width: 941px) {
+
+  body {
+    display: grid;
+    width: 100%;
+  }
+
+  .scoreboard {
+    display: none;
+  }
+
+  .gameboard-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .header {
+    background: no-repeat;
+    background-size: cover;
+  }
+
+  .gameboard {
+    padding: 20px 5px 5px 5px;
+    margin: 5% 14% 14%;
+  }

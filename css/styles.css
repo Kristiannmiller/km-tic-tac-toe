@@ -81,9 +81,14 @@ h2 {
   padding: 5px;
   width: 100%;
 }
+
 .gameboard div {
   height: 21vh;
   width: 21vh;
+}
+
+#0 {
+  border-style: solid;
 }
 
 .player-gamepiece {

@@ -17,8 +17,9 @@ window.addEventListener('load', startNewGame)
 
 function determineTargetLocation(event) {
   if(determineAvailability(event)) {
-    var targetId = parseInt(event.target.id);
-    updateGameBoard(targetId)
+    var target = event.target.id;
+    var boardNumber = parseInt(target[5])
+    updateGameBoard(boardNumber)
   }
 }
 
@@ -41,8 +42,8 @@ function determineAvailability(event) {
   }
 }
 
-function updateGameBoard(targetId) {
-  currentGame.determineBoardStatus(targetId)
+function updateGameBoard(boardNumber) {
+  currentGame.determineBoardStatus(boardNumber)
   currentGame.changePlayers()
   displayCurrentGameBoard()
   if(currentGame.winner !== undefined) {
@@ -57,13 +58,13 @@ function displayCurrentGameBoard() {
   gameboard.innerHTML = ""
   for(var i = 0; i < currentGame.currentBoard.length; i++) {
     gameboard.innerHTML +=
-    `<div id="${i}">
+    `<div id="board${i}">
     </div>`
-    var gridLocation = document.getElementById(`${i}`)
+    var gridLocation = document.getElementById(`board${i}`)
     if(currentGame.currentBoard[i] === currentGame.player1.marker) {
-      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player1.token}" alt="">`
+      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player1.token}" alt="${currentGame.player1.token}">`
     } else if(currentGame.currentBoard[i] === currentGame.player2.marker) {
-      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player2.token}" alt="">`
+      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player2.token}" alt="${currentGame.player2.token}">`
     }
   }
   turnImage.src = `${currentGame.turn.token}`

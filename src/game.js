@@ -13,17 +13,17 @@ class Game {
       [0, 4, 8], [2, 4, 6]];
   }
 
-  determineBoardStatus(targetId) {
-    this.updateCurrentBoard(targetId)
+  determineBoardStatus(boardNumber) {
+    this.updateCurrentBoard(boardNumber)
     var currentPlayerTurns = this.mapPlays()
     if(currentPlayerTurns.length >= 3) {
       this.determineWin(currentPlayerTurns)
     }
   }
 
-  updateCurrentBoard(targetId) {
+  updateCurrentBoard(boardNumber) {
     for(var i = 0; i < this.currentBoard.length; i++) {
-      if(this.currentBoard[i] === targetId) {
+      if(this.currentBoard[i] === boardNumber) {
         this.currentBoard.splice(i, 1, this.turn.marker)
         this.turnCount++
       }

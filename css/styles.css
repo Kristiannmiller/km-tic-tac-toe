@@ -1,5 +1,9 @@
 /* ~~~~~ GLOBAL RULES ~~~~~ */
 
+@font-face {
+    font-family: 'jurassic';
+    src: url('./JurassicPark-BL48.ttf');
+  }
 
 /*=== Reset ===*/
 
@@ -14,13 +18,15 @@ html, body {
 
 body {
   display: flex;
-  font-family: 'Open Sans';
+  font-family: 'Helvetica';
 }
 
 /* ~~~~~ SCOREBOARDS ~~~~~ */
 .scoreboard {
   height: 100%;
   background-color: #f0b83e;
+  background-blend-mode: screen;
+  background-size: 100%;
   text-align: center;
 }
 
@@ -34,22 +40,22 @@ h2 {
 }
 
 /* ~~~~~ GAMEBOARD ~~~~~ */
+
 .main {
   text-align: center;
   background-color: #180806;
-  padding: 0 3vh 3vh 3vh;
+  padding: 3vh;
 }
+
 .header {
+  font-family: 'jurassic';
   border-style: ridge;
   border-color: #f0b83e;
   color: white;
-  font-size: xxx-large;
-  margin: 20px;
+  font-size: 8em;
+  margin: 15px;
   padding: 10px;
-  background-color: #6d6d6d;
-  background-blend-mode: overlay;
   background: no-repeat;
-  background-size: 100%;
 }
 
 .turn-determination-container {
@@ -59,7 +65,7 @@ h2 {
 
 .turn-determination {
   display: flex;
-  color: #f0b83e;
+  color: white;
   align-items: center;
 }
 
@@ -70,21 +76,68 @@ h2 {
 }
 .gameboard {
   display: grid;
-  margin: 0 20px 0 -20px;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
-  padding: 20px;
+  grid-gap: 5px;
+  padding: 15px 5px 5px 5px;
   width: 100%;
 }
+
 .gameboard div {
-  height: 25vh;
-  width: 25vh;
+  height: 21vh;
+  width: 21vh;
+  border-style: solid;
+  border-width: thick;
+}
+
+#board0 {
+  border-color: #180806 #f0b83e #f0b83e #180806;
+}
+
+#board1 {
+  border-color: #180806 #f0b83e #f0b83e #f0b83e;
+}
+
+#board2 {
+  border-color: #180806 #180806 #f0b83e #f0b83e;
+}
+
+#board3 {
+  border-color: #f0b83e #f0b83e #f0b83e #180806;
+}
+
+#board4 {
+  border-color: #f0b83e #f0b83e #f0b83e #f0b83e;
+}
+
+#board5 {
+  border-color: #f0b83e #180806 #f0b83e #f0b83e;
+}
+
+#board6 {
+  border-color: #f0b83e #f0b83e #180806 #180806;
+}
+
+#board7 {
+  border-color: #f0b83e #f0b83e #180806 #f0b83e;
+}
+
+#board8 {
+  border-color: #f0b83e #180806 #180806 #f0b83e;
 }
 
 .player-gamepiece {
-  height: 24vh;
-
+  height: 21vh;
 }
-footer {
 
+footer {
+  height: 50%;
+}
+
+.winner-token {
+  width: 30em;
+  padding: 5em 5em 1em 5em
+}
+
+.game-result{
+  color: white;
 }

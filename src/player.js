@@ -1,9 +1,10 @@
 class Player {
-  constructor(id, token, marker) {
+  constructor(id, token, marker, winningImage) {
     this.id = id
     this.token = token
     this.wins = []
     this.marker = marker
+    this.winningImage = winningImage
   }
   saveWinsToStorage() {
     localStorage.setItem(`${this.id}-Wins`, JSON.stringify(this.wins));

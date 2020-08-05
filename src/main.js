@@ -26,16 +26,16 @@ function startNewGame() {
 function determineTargetLocation(event) {
   var target = event.target.id;
   var boardNumber = parseInt(target[5]);
-  if (determineAvailability(event)) {
+  if (determineAvailability(event.target.className)) {
     updateGameBoard(boardNumber);
   };
 };
 
 
-function determineAvailability(event) {
-  if (event.target.className === 'gameboard') {
+function determineAvailability(targetedSpot) {
+  if (targetedSpot === 'gameboard') {
     alert('Clever Girl! \n Please pick a valid spot');
-  } else if (event.target.className === 'player-gamepiece') {
+  } else if (targetedSpot === 'player-gamepiece') {
     alert('Life finds a way \n but you will have to find another way \n because that spot is taken');
   } else {
     return true;

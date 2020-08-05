@@ -24,11 +24,12 @@ body {
 /* ~~~~~ SCOREBOARDS ~~~~~ */
 
 .scoreboard {
-  height: 100%;
+  width: 100%;
   background-color: #f0b83e;
   background-blend-mode: screen;
   background-size: 100%;
   text-align: center;
+  background-attachment: inherit
 }
 
 .player-token {
@@ -73,8 +74,8 @@ h2 {
 .turn-token {
   height: 50px;
   padding: 0px 3px 0px 10px;
-
 }
+
 .gameboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -142,3 +143,53 @@ footer {
 .game-result{
   color: white;
 }
+
+/* ~~~~~ Media Queries ~~~~~ */
+
+@media screen and (min-width: 1475px) {
+
+  .player-token {
+    height: 240px;
+    padding: 40px;
+  }
+}
+
+@media screen and (max-width: 1340px) {
+
+  .player-token {
+    width: 100%;
+    height: auto;
+    padding: 0px;
+  }
+
+  h2 {
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 941px) {
+
+  body {
+    display: grid;
+    width: 100%;
+  }
+
+  .scoreboard {
+    display: none;
+  }
+
+  .gameboard-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .header {
+    background: no-repeat;
+    background-size: cover;
+  }
+
+  .gameboard {
+    padding: 20px 5px 5px 5px;
+    margin: 5% 14% 14%;
+  }

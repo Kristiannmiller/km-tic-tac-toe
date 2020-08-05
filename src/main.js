@@ -88,11 +88,7 @@ function displayPlayerStats() {
 };
 
 function determineGameResult() {
-  if(currentGame.winner === 'tie') {
-    displayTieResult();
-  } else {
-    displayWinResult();
-  };
+  currentGame.winner === 'tie' ? displayTieResult() : displayWinResult()
 };
 
 function displayTieResult() {

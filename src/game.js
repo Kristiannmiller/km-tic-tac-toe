@@ -18,7 +18,7 @@ class Game {
     this.turn.currentPlayMap.push(boardNumber);
     this.updateCurrentBoard(boardNumber);
     if (this.turn.currentPlayMap.length >= 3) {
-      this.determineWin(this.turn.currentPlayMap);
+      this.determineGameResult(this.turn.currentPlayMap);
     };
 
     this.changePlayers();
@@ -33,7 +33,7 @@ class Game {
     };
   };
 
-  determineWin(currentPlayerMap) {
+  determineGameResult(currentPlayerMap) {
     for (var i = 0; i < this.winningCombinations.length; i++) {
       if ((currentPlayerMap.includes(this.winningCombinations[i][0])) &&
       (currentPlayerMap.includes(this.winningCombinations[i][1])) &&
@@ -42,7 +42,7 @@ class Game {
         this.saveWinningBoard();
         break;
       } else {
-        this.determineTie();
+        this.turnCount === 9 ? this.winner = 'tie' : this.winner = undefined;
       };
     };
   };
@@ -61,20 +61,13 @@ class Game {
     this.turn.saveWinsToStorage();
   };
 
-  determineTie() {
-    this.turnCount === 9 ?
-    this.winner = 'tie' :
-    this.winner = undefined;
-  };
-
   changePlayers() {
-    if(this.winner === undefined) {
+    if (this.winner === undefined) {
       this.turn === this.player1 ?
       this.turn = this.player2 :
       this.turn = this.player1;
     };
   };
-
 
   resetBoard() {
     this.currentBoard = [0, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -83,5 +76,5 @@ class Game {
     this.winner = undefined;
     this.player1.currentPlayMap = [];
     this.player2.currentPlayMap = [];
-  }
-}
+  };
+};

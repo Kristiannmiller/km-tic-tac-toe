@@ -30,9 +30,9 @@ I will use all the tools I have acquired in Mod 1 to accomplish the completion o
 
 8/2: Worked on some CSS styling details. Created functions to manipulate the data model and tested data model updates using the in-browser console. Began working on functions to update the DOM. Cleaned up and refactored repetitious/unused code.
 
-8/3: Refactored functions updating the DOM to directly reflect data model. Added additional delegation to DOM update functions. Added timeout features. Refactored repetitious/unused code.
+8/3: Refactored functions updating the DOM to directly reflect data model. Added additional delegation to DOM update functions. Added timeout features. Updated README file. Refactored repetitious/unused code. Created assets and brought them into the CSS.
 
-8/4: Project due at 9:00pm
+8/4: Sent invites to repo for mentor feedback. Refactored according to mentor feedback. Refactored according to Turing styleguides. Created media queries for responsiveness. Updated README file. Project due at 9:00pm
 
 ## Showcase
 
@@ -41,18 +41,16 @@ I will use all the tools I have acquired in Mod 1 to accomplish the completion o
 </p>
 
 <p align="center">Desktop View</br>
-  <img width="460" height="300" src="" alt="Screenshot of app in desktop view">
+  <img width="460" height="300" src="assets/DesktopViewScreenshot.png" alt="Screenshot of app in desktop view">
 </p>
 
 <p align="center">Mobile View</br>
-  <img width="460" height="300" src="" alt="Screenshot of app in mobile view">
+  <img width="300" src="assets/MobileViewScreenshot.png" alt="Screenshot of app in mobile view">
 </p>
 
 <p align="center">Functionality</br>
-  <img width="460" height="300" src="" alt="Gif of application performing various functional actions">
-</p>
-
-<img width="460" height="300" src="" alt="Additional gif of application performing various functional actions">
+  <img width="460" height="300" src="assets/DesktopViewTour.gif" alt="Gif of application performing various functional actions">
+</p><p align="center"><img width="300" src="assets/MobileViewTour.gif" alt="Additional gif of application performing various functional actions">
 </p>
 
 Project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/tic-tac-toe-solo.html)

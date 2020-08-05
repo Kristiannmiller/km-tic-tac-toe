@@ -68,9 +68,9 @@ function displayCurrentGameBoard() {
       `<div id="board${i}"></div>`;
     var gridLocation = document.getElementById(`board${i}`);
     if(currentGame.currentBoard[i] === currentGame.player1.marker) {
-      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player1.token}">`;
+      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player1.token}" alt="Player1 Token: Jeff Goldblum in Jurassic Park">`;
     } else if(currentGame.currentBoard[i] === currentGame.player2.marker) {
-      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player2.token}">`;
+      gridLocation.innerHTML += `<img class="player-gamepiece" src="${currentGame.player2.token}" alt="Player2 Token: T-Rex from Jurassic Park">`;
     };
   };
 
@@ -100,7 +100,7 @@ function displayTieResult() {
   gameboard.innerHTML +=
 
   `<footer class="game-result">
-    <img class="winner-token" src="assets/tiedgame.jpg" alt="angry t-rex standing over frightened people">
+    <img class="winner-token" src="assets/tiedgame.jpg" alt="It's a tie! Image of angry t-rex standing over frightened people">
     <h1>It's A Tie!</h1>
   </footer>`;
 };
@@ -110,7 +110,7 @@ function displayWinResult() {
   toggleGameBoard('end');
   gameboard.innerHTML +=
     `<footer class="game-result">
-        <img class="winner-token" src="${currentGame.turn.winningImage}">
+        <img class="winner-token" src="${currentGame.turn.winningImage}" alt="${currentGame.turn} wins!">
         <h1>WON!</h1>
       </footer>`;
 };
